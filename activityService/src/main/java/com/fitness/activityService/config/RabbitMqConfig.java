@@ -13,14 +13,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMqConfig {
 
-    @Value("${rabbitmq.queue.name}")
-    private String queue;
-
     @Value("${rabbitmq.exchange.name}")
     private String exchange;
 
     @Value("${rabbitmq.routing.key}")
     private String routingKey;
+
+    @Value("${rabbitmq.queue.name}")
+    private String queue;
+
 
     @Bean
     public Queue activityQueue(){
@@ -33,7 +34,7 @@ public class RabbitMqConfig {
     }
 
     @Bean
-    public Binding activityBinding(Queue activityQueue, DirectExchange activityExchange ){
+    public Binding activityBinding(Queue activityQueue, DirectExchange activityExchange){
         return BindingBuilder.bind(activityQueue).to(activityExchange).with(routingKey);
     }
 
