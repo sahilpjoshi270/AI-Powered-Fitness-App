@@ -22,6 +22,7 @@ public class RabbitMqConfig {
     @Value("${rabbitmq.queue.name}")
     private String queue;
 
+
     @Bean
     public Queue activityQueue(){
         return new Queue(queue,true);
