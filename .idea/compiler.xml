@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="aiService" />
+        <module name="api-gateway" />
         <module name="eureka" />
         <module name="configServer" />
       </profile>
@@ -30,6 +31,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="activityService" options="-parameters" />
       <module name="aiService" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
       <module name="configServer" options="-parameters" />
       <module name="eureka" options="-parameters" />
       <module name="gateway" options="-parameters" />
