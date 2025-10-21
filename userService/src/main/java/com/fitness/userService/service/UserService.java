@@ -39,15 +39,15 @@ public class UserService {
 
         if(userRepository.existsByEmail(request.getEmail())){
             User existingUser = userRepository.findByEmail(request.getEmail());
-            UserResponse userResponse = new UserResponse();
-            userResponse.setId(existingUser.getId());
-            userResponse.setKeycloakId(existingUser.getKeycloakId());
-            userResponse.setPassword(existingUser.getPassword());
-            userResponse.setEmail(existingUser.getEmail());
-            userResponse.setFirstName(existingUser.getFirstName());
-            userResponse.setLastName(existingUser.getLastName());
-            userResponse.setCreatedAt(existingUser.getCreatedAt());
-            userResponse.setUpdatedAt(existingUser.getUpdatedAt());
+            UserResponse userResponse = getUserResponse(existingUser);
+//            userResponse.setId(existingUser.getId());
+//            userResponse.setKeycloakId(existingUser.getKeycloakId());
+//            userResponse.setPassword(existingUser.getPassword());
+//            userResponse.setEmail(existingUser.getEmail());
+//            userResponse.setFirstName(existingUser.getFirstName());
+//            userResponse.setLastName(existingUser.getLastName());
+//            userResponse.setCreatedAt(existingUser.getCreatedAt());
+//            userResponse.setUpdatedAt(existingUser.getUpdatedAt());
             return userResponse;
         }
 
@@ -59,16 +59,21 @@ public class UserService {
         user.setLastName(request.getLastName());
         User savedUser = userRepository.save(user);
 
+        UserResponse userResponse = getUserResponse(savedUser);
+
+        return userResponse;
+    }
+
+    private static UserResponse getUserResponse(User savedUser) {
         UserResponse userResponse = new UserResponse();
         userResponse.setId(savedUser.getId());
         userResponse.setEmail(savedUser.getEmail());
-        userResponse.setKeycloakId(savedUser.getKeycloakId());
         userResponse.setPassword(savedUser.getPassword());
+        userResponse.setKeycloakId(savedUser.getKeycloakId());
         userResponse.setFirstName(savedUser.getFirstName());
         userResponse.setLastName(savedUser.getLastName());
         userResponse.setCreatedAt(savedUser.getCreatedAt());
         userResponse.setUpdatedAt(savedUser.getUpdatedAt());
-
         return userResponse;
     }
 
