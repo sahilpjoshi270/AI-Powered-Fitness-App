@@ -38,4 +38,16 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/api/**", config);
         return source;
     }
+
+    public CorsConfigurationSource corsConfigurationSourceA(){
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(List.of("https://localhost:5173"));
+        config.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS"));
+        config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-User-ID"));
+        config.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/api/**", config);
+        return source;
+
+    }
 }

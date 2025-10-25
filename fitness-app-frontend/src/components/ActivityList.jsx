@@ -1,8 +1,7 @@
 import React from "react";
 
 const ActivityList = () => {
-    return 
-    <div>ActivityList</div>
-}
+  return <div>ActivityList</div>;
+};
 
-export default ActivityList
+export default ActivityList;
