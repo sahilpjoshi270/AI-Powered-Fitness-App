@@ -38,6 +38,14 @@ api.interceptors.request.use((config) => {
     }
   }
 
+  // Log the request for debugging
+  console.log("Making API request:", {
+    method: config.method?.toUpperCase(),
+    url: `${config.baseURL}${config.url}`,
+    headers: config.headers,
+    data: config.data
+  });
+
   return config;
 });
 

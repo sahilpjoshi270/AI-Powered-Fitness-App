@@ -21,11 +21,19 @@ const ActivityForm = ({ onActivityAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await addActivity(activity);
+      console.log("Sending activity data:", activity);
+      const response = await addActivity(activity);
+      console.log("Success response:", response);
       onActivityAdded();
       setActivity({ type: "RUNNING", duration: "", caloriesBurned: "" });
     } catch (error) {
       console.error("Error adding activity:", error);
+      console.error("Error details:", {
+        status: error.response?.status,
+        statusText: error.response?.statusText,
+        data: error.response?.data,
+        message: error.message,
+      });
     }
   };
 
