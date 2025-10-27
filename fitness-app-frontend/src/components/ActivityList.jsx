@@ -27,13 +27,9 @@ const ActivityList = () => {
             onClick={() => navigate(`/activities/${activity.id}`)}
           >
             <CardContent>
-              <Typography variant="h6">{activity.name}</Typography>
-              <Typography variant="body1">
-                Duration: {activity.duration}
-              </Typography>
-              <Typography variant="body2">
-                Calories: {activity.caloriesBurned}
-              </Typography>
+              <Typography variant="h6">{activity.type}</Typography>
+              <Typography> Duration: {activity.duration}</Typography>
+              <Typography> Calories: {activity.caloriesBurned}</Typography>
             </CardContent>
           </Card>
         </Grid>
