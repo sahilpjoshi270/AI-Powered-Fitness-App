@@ -1,18 +1,10 @@
 import axios from "axios";
-import { useContext } from "react";
-import { AuthContext } from "react-oauth2-code-pkce";
 
 const API_URL = "http://localhost:8080/api";
 
 const api = axios.create({
   baseURL: API_URL,
 });
-
-// Create a function to get the token from context
-const getAuthToken = () => {
-  // This will be called from components that have access to AuthContext
-  return null; // Will be overridden by the interceptor
-};
 
 api.interceptors.request.use((config) => {
   // Get token from localStorage (stored by the auth system)
@@ -43,7 +35,7 @@ api.interceptors.request.use((config) => {
     method: config.method?.toUpperCase(),
     url: `${config.baseURL}${config.url}`,
     headers: config.headers,
-    data: config.data
+    data: config.data,
   });
 
   return config;
@@ -52,4 +44,4 @@ api.interceptors.request.use((config) => {
 export const getActivities = () => api.get("/activities");
 export const addActivity = (activity) => api.post("/activities", activity);
 export const getActivityDetail = (id) =>
-  api.get("recommendation/activity/${id}");
+  api.get(`/recommendation/activity/${id}`);
