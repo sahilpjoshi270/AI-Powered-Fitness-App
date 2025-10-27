@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="AiServiceApplication" type="Application" factoryName="Application" nameIsGenerated="true">
     <envs>
-      <env name="GEMINI_API_URL" value="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent/key=" />
+      <env name="GEMINI_API_URL" value="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" />
       <env name="GEMINI_API_KEY" value="AIzaSyDe9PBz15qHKSk5rF9QZ5ZCRxUJNRrhhR4" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="com.fitness.aiService.AiServiceApplication" />
